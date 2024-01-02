@@ -1,0 +1,37 @@
+@font-face {
+  /* https://github.com/m-casanova/In-die-busillis */
+  font-family: "In die busillis";
+  src: url('fonts/in-die-busillis/In die busillis.otf') format('opentype'),
+       url('fonts/in-die-busillis/In die busillis.woff2') format('woff2'),
+       url('fonts/in-die-busillis/In die busillis.ttf') format('truetype');
+}
+
+.leaflet-bottom.leaflet-right {
+  visibility: hidden;
+}
+
+.leaflet-tooltip {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  color: #080808;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  box-shadow: none;
+  text-shadow: 0px -1px 1px #FFFFFF;
+}
+
+.leaflet-tooltip-bottom {
+  margin-top: 0px;
+}
+
+.leaflet-tooltip-bottom:before {
+  border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.leaflet-tooltip-left:before {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+.leaflet-tooltip-right:before {
+  border-right-color:rgba(0, 0, 0, 0.5);
+}

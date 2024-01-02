@@ -1,0 +1,54 @@
+Fort Rayles, Lumbermill, 16.54x34.61
+Fort Rayles, Farm, 19.83x33.99
+Fort Rayles, Mine, 19.59x28.88
+Fort Warden, Lumbermill, 26.17x16.68
+Fort Warden, Farm, 25.09x20.86
+Fort Warden, Mine, 20.60x17.62
+Fort Glademist, Lumbermill, 31.03x27.96
+Fort Glademist, Farm, 25.09x20.86
+Fort Glademist, Mine, 25.38x27.65
+Fort Aleswell, Lumbermill, 38.70x30.83
+Fort Aleswell, Farm, 43.56x27.68
+Fort Aleswell, Mine, 39.61x25.41
+Fort Ash, Lumbermill, 35.41x39.67
+Fort Ash, Farm, 30.83x40.49
+Fort Ash, Mine, 31.67x43.89
+Fort Dragonclaw, Lumbermill, 47.33x09.37
+Fort Dragonclaw, Farm, 47.70x13.20
+Fort Dragonclaw, Mine, 53.27x12.47
+Kingscrest Keep, Lumbermill, 71.01x16.95
+Kingscrest Keep, Farm, 70.94x21.17
+Kingscrest Keep, Mine, 76.38x19.44
+Farragut Keep, Lumbermill, 82.92x35.23
+Farragut Keep, Farm, 80.84x32.38
+Farragut Keep, Mine, 85.72x30.87
+Drakelowe Keep, Lumbermill, 78.77x55.75
+Drakelowe Keep, Farm, 73.96x56.33
+Drakelowe Keep, Mine, 76.64x60.96
+Chalman Keep , Lumbermill, 58.31x31.99
+Chalman Keep, Farm, 61.42x27.25
+Chalman Keep, Mine, 58.31x31.99
+Arrius Keep, Lumbermill, 67.66x31.94
+Arrius Keep, Farm, 71.11x29.01
+Arrius Keep, Mine, 72.43x31.83
+Blue Road Keep, Lumbermill, 65.37x39.61
+Blue Road Keep, Farm, 62.82x43.08
+Blue Road Keep, Mine, 68.55x43.22
+Castle Alessia, Lumbermill, 54.25x54.45
+Castle Alessia, Farm,55.52x58.97
+Castle Alessia, Mine, 58.22x58.76
+Castle Bloodmane, Lumbermill, 61.01x76.00
+Castle Bloodmane, Farm, 56.89x72.91
+Castle Bloodmane, Mine, 55.11x78.18
+Castle Roebeck, Lumbermill, 43.82x58.04
+Castle Roebeck, Farm, 40.89x54.40
+Castle Roebeck, Mine, 39.93x58.96
+Castle Brindle, Lumbermill, 20.58x58.33
+Castle Brindle, Farm, 25.29x58.03
+Castle Brindle, Mine, 20.60x54.69
+Castle Faregyl, Lumbermill, 51.85x69.36
+Castle Faregyl, Farm, 47.20x66.16
+Castle Faregyl, Mine, 52.44x65.66
+Castle Black Boot, Lumbermill, 38.41x77.50
+Castle Black Boot, Farm, 43.27x75.73
+Castle Black Boot, Mine, 44.09x79.11
