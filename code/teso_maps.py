@@ -5,6 +5,7 @@ import folium
 import folium.plugins as plugins
 
 from base import BasicMap
+from data import location_name_overwrites
 from datatypes import Icon, Coordinate, MapObject, MapObjectType, Lorebook
 
 
@@ -17,11 +18,17 @@ def get_objects_from_mappins(
         path_to_mappins_data: Path,
         mappins_name: str,
         object_name: str,
-        teso_location_name: str,
+        mappins_location_name: str,
         icon_filename: str
 ) -> list[MapObject]:
     with open(path_to_mappins_data, 'r', encoding='utf-8') as f:
         mappins_data = json.load(f)
+
+    try:
+        objects = mappins_data[mappins_name][mappins_location_name]
+    except KeyError:
+        print(f'{object_name} not found for {mappins_location_name}')
+        return []
 
     return [
         MapObject(
@@ -29,7 +36,7 @@ def get_objects_from_mappins(
             Coordinate(obj[0] * 100, obj[1] * 100),
             Icon(PATH_TO_ICONS / icon_filename),
             f"{object_name} #{i}"
-        ) for i, obj in enumerate(mappins_data[mappins_name][teso_location_name], start=1)
+        ) for i, obj in enumerate(objects, start=1)
     ]
 
 
@@ -39,6 +46,9 @@ class TESOMap(BasicMap):
         self.location_name = location_name
 
     def add_collection(self, name: str, objects: list[MapObject], icon_size: int | str) -> None:
+        if not objects:
+            return
+
         group = folium.FeatureGroup(name=f"{name}", overlay=False, show=False).add_to(self)
 
         for obj in objects:
@@ -64,7 +74,14 @@ class TESOMap(BasicMap):
         with open(path, 'r', encoding='utf-8') as f:
             mappins_data = json.load(f)
 
-        lorebooks_data = mappins_data['Lorebooks'][self.location_name.lower()]
+        location_name = location_name_overwrites.get(self.location_name) or self.location_name.lower()
+
+        try:
+            lorebooks_data = mappins_data['Lorebooks'][location_name]
+        except KeyError:
+            print(f'Lorebooks not found for {self.location_name}')
+            return
+
         lorebooks = [
             Lorebook(
                 coordinate=Coordinate(data[0] * 100, data[1] * 100),
@@ -106,9 +123,10 @@ class TESOMap(BasicMap):
         ).add_to(self)
 
     def fill_from_mappins(self, path_to_mappins_data: str | Path) -> None:
+        location_name = location_name_overwrites.get(self.location_name) or self.location_name.lower()
         self.add_collection(
             'Skyshards',
-            get_objects_from_mappins(path_to_mappins_data, 'SkyShards', 'Skyshard', self.location_name.lower(), 'skyshard.png'),
+            get_objects_from_mappins(path_to_mappins_data, 'SkyShards', 'Skyshard', location_name, 'skyshard.png'),
             25
         )
 
@@ -128,7 +146,7 @@ class TESOMap(BasicMap):
 
         self.add_collection(
             'Treasures',
-            get_objects_from_mappins(path_to_mappins_data, 'TreasureMaps', 'Treasure', self.location_name.lower(), 'red_x_mark.png'),
+            get_objects_from_mappins(path_to_mappins_data, 'TreasureMaps', 'Treasure', location_name, 'red_x_mark.png'),
             25
         )
 
@@ -157,7 +175,15 @@ def map_fabric(location_name, path_to_map_file, path_to_output: Path = None) -> 
 
 if __name__ == '__main__':
     maps_to_create = [
-        ('Deshaan', base_dir / 'static/img/maps/deshaan_2048_2048.png'),
+        # ('Deshaan', base_dir / 'static/img/maps/deshaan_2048_2048.png'),
+
+        ('Alikr', base_dir / 'static/img/maps/alikr_2048_2048.png'),
+        ('Auridon', base_dir / 'static/img/maps/auridon_2048_2048.png'),
+        ('Blackwood', base_dir / 'static/img/maps/alikr_2048_2048.png'),
+        ('Clockwork', base_dir / 'static/img/maps/clockwork_2048_2048.png'),
+        ('Coldharbour', base_dir / 'static/img/maps/coldharbour_2048_2048.png'),
+        ('Craglorn', base_dir / 'static/img/maps/craglorn_1792_1792.png'),
+        ('Deadlands', base_dir / 'static/img/maps/deadlands_2048_2048.png'),
     ]
     for map_ in maps_to_create:
         map_fabric(*map_)
